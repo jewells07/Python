@@ -12,8 +12,13 @@ val=input(" Enter the value ")
 for state in statesAndCapitals: 
     if val==state:
         print(statesAndCapitals[val]) 
+        
    
-       
+#OR WE CAN FETCH DIRECTLY:
+"""
+print(statesAndCapitals[val])
+"""
+  
         
     
         
