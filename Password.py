@@ -35,7 +35,7 @@ def password_check(passwd):
   
 # Main method 
 def main(): 
-    passwd = 'Geek12@'
+    passwd = input("Enter your Password")
       
     if (password_check(passwd)): 
         print("Password is valid") 
