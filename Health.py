@@ -48,11 +48,11 @@ def retrieve(k):
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("salman_food.txt","r+")as s:
-                for line in s: 
+                for lines in s: 
                     print(lines)
         elif c==2:
             with open("salman_exercise.txt","r+")as s:
-                for line in s: 
+                for lines in s: 
                     print(lines)
             
         else:
@@ -61,11 +61,11 @@ def retrieve(k):
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("sharukh_food.txt","r+")as sk:
-                for line in sk: 
+                for lines in sk: 
                     print(lines)
         elif c==2:
             with open("sharukh_exercise.txt","r+")as sk:
-                for line in sk: 
+                for lines in sk: 
                     print(lines)
         else:
             print("Not valid")
@@ -73,11 +73,11 @@ def retrieve(k):
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("aamir_foodf.txt","r+")as ak:
-                for line in ak: 
+                for lines in ak: 
                     print(lines)
         elif c==2:
             with open("aamir_exercise.txt","r+")as ak:
-                for line in ak: 
+                for lines in ak: 
                     print(lines)
         else:
             print("Not valid")
