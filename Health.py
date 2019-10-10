@@ -2,6 +2,8 @@ import datetime
 def gettime():
     return datetime.datetime.now()
 def take(k):
+    """This Function writes the diet and excercise of 3 person """
+    #FOR SALAMAN
     if k==1:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
@@ -18,6 +20,7 @@ def take(k):
         else:
             print("Not Valid")
                 
+    #FOR SHARUKH
     elif k==2:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
@@ -32,6 +35,8 @@ def take(k):
                 print("successfully written")
         else:
             print("Not Valid")
+            
+    #FOR AAMIR
     elif k==3:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
@@ -54,6 +59,8 @@ def take(k):
 
         
 def retrieve(k):
+    """This Function reads the diet and excercise of 3 person """
+    #FOR SALAMAN
     if k==1:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
@@ -67,6 +74,8 @@ def retrieve(k):
             
         else:
             print("Not valid")
+            
+    #FOR SHARUKH
     elif k==2:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
@@ -79,10 +88,12 @@ def retrieve(k):
                     print(lines)
         else:
             print("Not valid")
+            
+    #FOR AAMIR
     elif k==3:
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
-            with open("aamir_foodf.txt")as ak:
+            with open("aamir_food.txt")as ak:
                 for lines in ak: 
                     print(lines)
         elif c==2:
@@ -101,9 +112,7 @@ def retrieve(k):
 
 
 
-
-
-
+#MAIN()
 a=int(input("Enter 1 for lock and 2 for retrieve"))
 if a==1:
     b=int(input("Enter 1(Salman) 2(Sharukh) 3(Aamir)"))
