@@ -19,20 +19,10 @@ def Password(pas,k):
         print("NOT IN OUR DATABASE:")
 
 
-client_list = {1:"Salman", 2:"Sharukh", 3:"Aamir"}
-lock_list = {1:"Exercise", 2:"Diet"}
-print("Select Client")
 
-#It will print the names and numbers from both List
-for key,value in client_list.items():
-    print("Press",key,"for",value)
-    
-client_num=int(input())
-print("Selected",client_list[client_num],"\n")
-sel=int(input("Press 1(Lock) and 2(Retrieve)"))
 
 #FOR Lock----
-if sel is 1:
+def For_lock(sel):
     pas=input("Enter the password:")
     Password(pas,client_num)
     c=int(input("Press 1(Exercise) 2(Diet)\n"))
@@ -60,7 +50,7 @@ if sel is 1:
         sys.exit("WRONG INPUT")
  
 #Retrieve-------       
-elif sel is 2:
+def For_Retrieve(sel):
     c=int(input("Press 1(Exercise) 2(Diet)\n"))
     #FOR Exercise--------
     if c==1:
@@ -76,9 +66,25 @@ elif sel is 2:
         sys.exit("WRONG INPUT")
         
     
+client_list = {1:"Salman", 2:"Sharukh", 3:"Aamir"}
+lock_list = {1:"Exercise", 2:"Diet"}
+print("Select Client")
+
+#It will print the names and numbers from both List
+for key,value in client_list.items():
+    print("Press",key,"for",value)
     
-    
-    
-    
+try:
+    client_num=int(input())
+    print("Selected",client_list[client_num],"\n")
+    sel=int(input("Press 1(Lock) and 2(Retrieve)"))
+    if sel is 1:
+        For_lock(sel)
+    elif sel is 2:
+        For_Retrieve(sel)
+    else:
+        print("Wrong Input")
+except Exception as e:
+    print("ERROR--404\nYou Press Worng key or you don't have Data:")
     
     
