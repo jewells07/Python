@@ -1,3 +1,4 @@
+import sys          #For sys.exit() in password function
 import datetime
 def gettime():
     return datetime.datetime.now()
@@ -5,6 +6,8 @@ def take(k):
     """This Function writes the diet and excercise of 3 person """
     #FOR SALAMAN
     if k==1:
+        pas=input("Enter your password:")
+        Password(pas)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("salman_food.txt","a")as s:
@@ -22,6 +25,8 @@ def take(k):
                 
     #FOR SHARUKH
     elif k==2:
+        pas=input("Enter your password:")
+        Password(pas)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("sharukh_food.txt","a")as sk:
@@ -38,6 +43,8 @@ def take(k):
             
     #FOR AAMIR
     elif k==3:
+        pas=input("Enter your password:")
+        Password(pas)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("aamir_food.txt","a")as aa:
@@ -107,6 +114,14 @@ def retrieve(k):
     
 
 
+def Password(pas):
+    """This Function is for Password:"""
+    Dict = {1: 'Salman@123', 2: 'Sharukh@123', 3: 'Aamir@123'} 
+    
+    if pas in Dict.values():
+        print("Password Granted")
+    else:
+        sys.exit("In valid Password")
 
 
 
