@@ -7,7 +7,7 @@ def take(k):
     #FOR SALAMAN
     if k==1:
         pas=input("Enter your password:")
-        Password(pas)
+        Password(pas,k)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("salman_food.txt","a")as s:
@@ -26,7 +26,7 @@ def take(k):
     #FOR SHARUKH
     elif k==2:
         pas=input("Enter your password:")
-        Password(pas)
+        Password(pas,k)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("sharukh_food.txt","a")as sk:
@@ -44,7 +44,7 @@ def take(k):
     #FOR AAMIR
     elif k==3:
         pas=input("Enter your password:")
-        Password(pas)
+        Password(pas,k)
         c=int(input("Enter 1(food) and 2(exercise)"))
         if c==1:
             with open("aamir_food.txt","a")as aa:
@@ -114,26 +114,32 @@ def retrieve(k):
     
 
 
-def Password(pas):
+def Password(pas,k):
     """This Function is for Password:"""
     Dict = {1: 'Salman@123', 2: 'Sharukh@123', 3: 'Aamir@123'} 
-    
-    if pas in Dict.values():
-        print("Password Granted")
+    if k in Dict.keys():
+        if Dict.get(k)==pas:
+            print("Password Granted")
+        else:
+            sys.exit("WRONG Password")
     else:
         sys.exit("In valid Password")
-
+       
 
 
 
 
 #MAIN()
-a=int(input("Enter 1 for lock and 2 for retrieve"))
-if a==1:
-    b=int(input("Enter 1(Salman) 2(Sharukh) 3(Aamir)"))
-    take(b)
-elif a==2:
-    b=int(input("Enter 1(Salman) 2(Sharukh) 3(Aamir)"))
-    retrieve(b)
-else:
-    print("In Valid Option:")
+try:
+    a=int(input("Enter 1 for lock and 2 for retrieve"))
+    if a==1:
+        b=int(input("Enter 1(Salman) 2(Sharukh) 3(Aamir)"))
+        take(b)
+    elif a==2:
+        b=int(input("Enter 1(Salman) 2(Sharukh) 3(Aamir)"))
+        retrieve(b)
+    else:
+        print("In Valid Option:")
+except Exception as e:
+    print("ERROR--404")
+    print("You Press Worng key or you didn't locked")
