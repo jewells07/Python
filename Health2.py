@@ -29,15 +29,31 @@ if sel is 1:
     Password(pas,client_num)
     c=int(input("Press 1(Exercise) 2(Diet)\n"))
     if c==1:
-        with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as f:
+        with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as w:
             write=input("Write for"+client_list[client_num]+"\n")
-            f.write(str([str(gettime())])+": "+write+"\n")
+            w.write(str([str(gettime())])+": "+write+"\n")
             print("successfully written")
-    if c==2:
-        with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as f:
-            write=input("Write for"+client_list[client_num]+"\n")
-            f.write(str([str(gettime())])+": "+write+"\n")
+    elif c==2:
+        with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as w:
+            write=input("Write for "+client_list[client_num]+"\n")
+            w.write(str([str(gettime())])+": "+write+"\n")
             print("successfully written")
+    else:
+        sys.exit("WRONG INPUT")
+        
+elif sel is 2:
+    c=int(input("Press 1(Exercise) 2(Diet)\n"))
+    if c==1:
+        with open(client_list[client_num]+"_"+lock_list[c]+"txt")as r:
+            for lines in r: 
+                print(lines)
+    elif sel==2:
+         with open(client_list[client_num]+"_"+lock_list[c]+"txt")as r:
+            for lines in r: 
+                print(lines)
+    else:
+        sys.exit("WRONG INPUT")
+        
     
     
     
