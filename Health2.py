@@ -11,7 +11,10 @@ def Password(pas,k):
                 #(EXAMPLE):1(Salman) == Sharukh@123(pass) WRONG
             sys.exit("WRONG Password")
 
-
+import sys          #For sys.exit() in password function
+import datetime
+def gettime():
+    return datetime.datetime.now()
 
 client_list = {1:"Salman", 2:"Sharukh", 3:"Aamir"}
 lock_list = {1:"Exercise", 2:"Diet"}
@@ -24,12 +27,17 @@ sel=int(input("Press 1(Lock) and 2(Retrieve)"))
 if sel is 1:
     pas=input("Enter the password:")
     Password(pas,client_num)
-    c=int(input("Press 1(Exercise) 2(Diet)"))
+    c=int(input("Press 1(Exercise) 2(Diet)\n"))
     if c==1:
         with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as f:
-            write=input("Write for"+client_list[value])
+            write=input("Write for"+client_list[client_num]+"\n")
             f.write(str([str(gettime())])+": "+write+"\n")
-    
+            print("successfully written")
+    if c==2:
+        with open(client_list[client_num]+"_"+lock_list[c]+"txt","a")as f:
+            write=input("Write for"+client_list[client_num]+"\n")
+            f.write(str([str(gettime())])+": "+write+"\n")
+            print("successfully written")
     
     
     
