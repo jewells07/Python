@@ -134,9 +134,6 @@ def Password(pas,k):
             print("Password Granted")
         else:
             sys.exit("WRONG Password")
-    else:
-        sys.exit("In valid Password")
-       
 
 
 
