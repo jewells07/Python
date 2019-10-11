@@ -126,13 +126,14 @@ def retrieve(k):
 def Password(pas,k):
     """This Function is for Password:"""
     Dict = {1: 'Salman@123', 2: 'Sharukh@123', 3: 'Aamir@123'} 
-    #It takes the key(1,2,3,..) and match in Dictionary(Dict):
     if k in Dict.keys():
-        #if Key match with password then Granted
-        #(EXAMPLE): 1 (salman) == Salman@123(Password)
+             #It takes the key k(1,2,3,..) and match in Dictionary(Dict):
         if Dict.get(k)==pas:
+               #if Key match with password then Granted
+               #(EXAMPLE): 1 (Salman) == Salman@123(Pass)
             print("Password Granted")
         else:
+                #(EXAMPLE):1(Salman) == Sharukh@123(pass) WRONG
             sys.exit("WRONG Password")
 
 
