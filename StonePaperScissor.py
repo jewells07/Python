@@ -1,7 +1,7 @@
 import random
 try:
-    option = {1:"Stone", 2:"Paper", 3:"Scissor"}
-    print("1(Stone) 2(Paper) 3(Scissor) you can play upto 5 times")
+    option = {1:"Rock", 2:"Paper", 3:"Scissor"}
+    print("1(Rock) 2(Paper) 3(Scissor) you can play upto 5 times")
     you,cpu=0,0
     i=0
     while(i<5):
