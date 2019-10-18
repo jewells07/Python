@@ -7,8 +7,12 @@ class Employee:
         print(f"{self.name}  {self.salary} {self.role}")
     @classmethod                                        #Decorators
     def from_str(cls,strings):                          #Alternative constructor
-        params=strings.split("-")                       #split by "-" and make a List
-        return cls(params[0],params[1],params[2])       #Given to the class and there arguments
+        # params=strings.split("-")                       #split by "-" and make a List
+        # return cls(params[0],params[1],params[2])       #Given to the class and there arguments
+        #OR you can write in short way 
+        return cls(*strings.split("-"))
+
+        
     
 object1=Employee("jackie",10000,"Account")  #Normal constructor
 object2=Employee.from_str("Karan-15000-Marketing\n")#Alternative constructor
