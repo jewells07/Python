@@ -1,0 +1,117 @@
+import sys 
+class Library:
+    def __init__(self,alist_of_books,alib_name):
+        self.list_of_books = alist_of_books
+        self.lib_name = alib_name
+
+    def disp(self):
+        return print(f"The Books available are {self.list_of_books}\n")
+
+    def new_customer(self,log,abook):
+        name=input("Enter Your Name\n")
+        self.name=name
+        self.book=abook           #we declare  self.book in the function so it will not excute first at add function
+        self.log=log
+        self.name=name
+        if self.name in self.log:
+            Library.add(self)
+        
+        elif self.name is not self.log:
+            new_book=input("Welcome,Which book do you want.Please Enter the Name of Book.\n")
+            if new_book in self.list_of_books:
+                print(f"Your Book is '{new_book}'")
+                self.book=[new_book]
+                self.log[self.name]=self.book   #log is a dict and book is a list a={'abc':['agv']}
+                self.list_of_books.remove(new_book)
+            else:
+                print("Book is Not Present")
+                #This is not available but that person have book that you are finding
+                for i,j in self.log.items():
+                    if new_book in j:
+                        print(f"'{new_book}' Book is with {i}")
+
+    def add(self):
+        """Only you can add when you are the customer """
+        try: 
+
+            if self.name in list(self.log): #check weather person is in dictionary or not
+                print("Which book do you want ADD.Please Enter the Book name")
+                add_book=input()
+
+                if add_book in self.list_of_books:
+                    print(f"Your Book is '{add_book}'")
+                    self.log[self.name]=self.book.append(add_book) 
+                    self.list_of_books.remove(add_book)
+                
+                else:
+                    print("Book is Not Present")
+                    for i,j in self.log.items():
+                        if add_book in j:
+                            print(f"'{add_book}' Book is with {i}")
+            
+            else:print("NO Data of person (Empty dictionary)")
+
+        except Exception as e:
+            print("You can't add without being a customer")
+
+            
+
+    def confirm(self):
+        try:
+            """It will show the persons and books
+                it will not show without being customer"""
+            self.log[self.name]=self.book
+
+            """This will convert into list and check the empty list[],
+                If it is present it will delete the element (key,value) in dictionary"""
+            for i,j in list(self.log.items()):
+                if j==[] or j==None:
+                    if j==None: print(f"{i} You didn't confirm if you added 2 books ")
+                    del self.log[i]
+            print(self.log)
+        except Exception as e:
+            print("You can't confirm without being a customer")
+            
+
+    def Return(self):
+        """It returns the book but it can't return without being customer"""
+        try:
+            nam=input("Enter your name:")
+            if nam in list(self.log):      #check weather person is in dictionary or not
+                Return_book=input("Enter return book name\n")
+                if nam in self.log:
+                    if Return_book in self.log[nam]:
+                        self.list_of_books.append(Return_book)
+                        self.log[nam].remove(Return_book)
+            else: print("You didn't issued book")
+
+        except Exception as e:      
+            print("You can't return book without being customer")
+        
+
+        
+if __name__ == '__main__':
+    print("The Library Mangament System")
+    lib_name=input("Enter the Library Name\n")    
+    
+    list_of_books=["Awaken","Outliers","The Dip","Good to Great","Rich Dad Poor Dad",
+                        "E-Myth Revisited","War of Art","Four Hour Work Week","Startup","Honorable"]
+    log={}
+    book=[]
+    obj=Library(list_of_books,lib_name)
+   
+    while(True):
+        print("1(Display Book) 2(New customer) 3(Add Book) 4(Return book) 5(confirm) 6(For exit)")
+        intputt=int(input("Enter your choice"))
+        if intputt is 1:
+            obj.disp()
+        elif intputt is 2:
+            obj.new_customer(log,book)
+        elif intputt is 3:
+            obj.add()
+        elif intputt is 4:
+            obj.Return()
+        elif intputt is 5:
+            obj.confirm()
+        elif intputt is 6:
+            break
