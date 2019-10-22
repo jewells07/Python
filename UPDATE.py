@@ -20,14 +20,14 @@ class Library:
         if self.name in self.log:
             print("Your old customer")
             self.bookName = input("Old customer Please Enter the Name of Book.\n")
-            self.confirm()
+            self.confirm(None,None)
 
         else :
             self.bookName = input("Welcome new customer Please Enter the Name of Book.\n")
-            self.confirm()
+            self.confirm(None,None)
 
 
-    def confirm(self):
+    def confirm(self,Return_name,Return_book):
         conf=int(input("Press '1' for confirm book OR Press '2' for confirm Return"))
         if conf is 1:
             if self.bookName in self.list_of_books:
@@ -43,6 +43,12 @@ class Library:
                             print(f"'{self.bookName}' Book is with {i}")
                             break
         elif conf is 2:
+            if Return_name in list(self.log):      
+                if Return_book in self.log[Return_name]:
+                    self.list_of_books.append(Return_book)
+                    self.log[Return_name].remove(Return_book)
+            else: 
+                print("You didn't issued book")
             """In this loop if the person don't have book [](empty list) after returning all books
                 {'Ronaldo':[]} so it will delete the Ronaldo element"""
 
@@ -50,18 +56,13 @@ class Library:
                 # print(i, " ", j)
                 if j == [] or j == None:
                     del self.log[i]
-                print(self.log)
+            print("1:",self.log)
 
     def Return(self):
             Return_name = input("Enter your name:") 
-            if Return_name in list(self.log):      
-                Return_book = input("Enter return book name\n")
-                if Return_book in self.log[Return_name]:
-                    self.list_of_books.append(Return_book)
-                    self.log[Return_name].remove(Return_book)
-                    self.confirm()  #Just for delete empty dict thats why we call this method
-            else: 
-                print("You didn't issued book")
+            Return_book = input("Enter return book name\n")
+            self.confirm(Return_name,Return_book)
+            
 
 if __name__ == '__main__':
     print("The Library Mangament System")
