@@ -8,7 +8,7 @@ class Library:
         self.name=""                #define here for make is global
         
     def disp(self):
-        a=int(input("Press 1 for list of books Or 2 for customer details"))
+        a=int(input("Press 1 for list of books Or 2 for customer details\n"))
         if a is 1:
             print(f"The Books available are {self.list_of_books}\n")
         elif a is 2:
@@ -32,8 +32,9 @@ class Library:
         if conf is 1:
             if self.bookName in self.list_of_books:
                 print(f"Your Book is '{self.bookName}'")
-                self.book.append(self.bookName)
-                self.log[self.name] = self.book
+                # self.book.append(self.bookName)
+                # self.log[self.name] = self.book
+                self.log.setdefault(self.name,[]).append(self.bookName)
                 self.list_of_books.remove(self.bookName)
                 print(self.log)
             else:
