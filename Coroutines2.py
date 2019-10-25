@@ -29,3 +29,5 @@ if __name__ == '__main__':
     next(search) 
     a=input("Which word do you want to search")
     search.send(a)
+    f1.close()
+    f2.close()
