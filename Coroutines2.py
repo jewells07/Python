@@ -22,12 +22,12 @@ def searcher():
             print(f"Your '{text}' text in file2")
         else:
             print(f"'{text}' Text is not in this book:")
+        f1.close()
+        f2.close()
 
 if __name__ == '__main__':
     search = searcher()
     print("Input in 2 files")
-    next(search) 
+    next(search)
     a=input("Which word do you want to search")
     search.send(a)
-    f1.close()
-    f2.close()
