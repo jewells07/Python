@@ -9,12 +9,24 @@ email id:<dt@codewithharry.com>
 email:"deepak@dt.com.in" and I have one more harrybhai@codewithharry.com.
 
 """
-patt = re.compile(r'\S+@\S+')
+# email = re.compile(r'\S+@\S+')
 # \S matches any non-whitespace character 
 # @ for as in the Email 
 # + for Repeats a character one or more times 
+# matches = email.finditer(mystr)
+# for i in matches:
+#     print(i)
 
-matches = patt.finditer(mystr)
 
-for match in matches:
-    print(match)
+#----short to find all ------
+# short = re.findall(r'\w+@\S+\w',mystr)
+# print(short)
+
+
+
+#---------Nice Way----
+email = re.findall(r"[0-9a-zA-Z._+%]+@[0-9a-zA-Z._+%]+[.][a-zA-Z.0-9]",mystr)
+#number 0-9 upper and lower case a-zA-Z symbols ._+% 
+# + means more than one occurance 
+# @ only one and .
+print(email)
