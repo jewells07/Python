@@ -14,14 +14,14 @@ try:
         print("You are not yet born")
     else:
         print("Something went wrong in your Input....")
-    input2 = int(input("\nEnter the year to find how old you will be\n"))
+    input2 = int(input("\nEnter the year you want to know your age in\n"))
     length2 = len(str(input2))
     if length == 4 and length2 == 4:
         print(f"You will be {input2 - input1} at year {input2}")
     elif input2>2019 and length == 2 and length2 == 4:
         birth_year = 2019 - input1
         age = input2 - birth_year
-        print(f"You will be {age} at {input2} ")
+        print(f"You will be {age} old at {input2} ")
     else:
         print("You Enter wrong input")
 
