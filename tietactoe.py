@@ -36,10 +36,12 @@ def checkAll(char):
     if checkLine(char, 2,4,6):
         return True
 def GameTie():
-    if board[0] and board[1] and board[2] and board[3] and board[4] and board[5] and board[6] and board[7] and board[8] == 'X' or board[0] and board[1] and board[2] and board[3] and board[4] and board[5] and board[6] and board[7] and board[8] == 'O':
+    # if (board[0] and board[1] and board[2] and board[3] and board[4] and board[5] and board[6] and board[7] and board[8] == 'X') or (board[0] and board[1] and board[2] and board[3] and board[4] and board[5] and board[6] and board[7] and board[8] == 'O'):
+    #     print("Game Tie")z
+    #     return True
+    if (board[0] == 'X' or board[0] =='O') and (board[1] == 'X' or board[1] =='O') and(board[2] == 'X' or board[2]=='O') and(board[3] == 'X' or board[3]=='O') and(board[4] == 'X' or board[4] =='O') and(board[5] == 'X' or board[5]=='O') and(board[6] == 'X' or board[6]=='O') and(board[7] == 'X' or board[7]=='O') and(board[8] == 'X' or board[8]=='O'):
         print("Game Tie")
         return True
-
 while True:
     try:
         inputt=int(input("1st Player Select a spot:"))
@@ -72,11 +74,9 @@ while True:
                         print('This spot is taken!')
                 except Exception as e:
                     print('Wrong Input')
-        
         else:
             
             print('This spot is taken!')
 
     except Exception as e:
         print('Wrong Input')
-        
